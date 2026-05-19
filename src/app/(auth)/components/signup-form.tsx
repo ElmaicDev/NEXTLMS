@@ -65,7 +65,7 @@ export function SignUpForm() {
         onChange={(e) => setPassword(e.target.value)}
       />
 
-      <Button className="w-full" onClick={handleSubmit} disabled={loading}>
+      <Button className="w-full hover:bg-slate-900/80" onClick={handleSubmit} disabled={loading}>
         {loading ? "Creando..." : "Crear cuenta"}
       </Button>
 

@@ -19,10 +19,10 @@ export default function LandingPage() {
               NextLMS es la solución todo-en-uno para docentes, academias y equipos de capacitación que necesitan una experiencia elegante, rápida y fácil de usar.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button size="lg" className="min-w-45 bg-cyan-500 text-slate-950 hover:bg-cyan-400" asChild>
+              <Button size="lg" className="min-w-45 bg-cyan-500 hover:text-white text-slate-950 hover:bg-cyan-400" asChild>
                 <Link href="/signup">Empezar gratis</Link>
               </Button>
-              <Button variant="outline" size="lg" className="min-w-45 border-slate-500 text-slate-100 hover:border-slate-400 hover:text-white" asChild>
+              <Button variant="outline" size="lg" className="min-w-45 border-slate-500 text-slate-500 hover:border-slate-400 hover:text-black" asChild>
                 <Link href="/signin">Iniciar sesión</Link>
               </Button>
             </div>
@@ -57,7 +57,7 @@ export default function LandingPage() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
-            <Card className="rounded-[2rem] border border-slate-700/70 bg-slate-900/80 p-6 shadow-[0_30px_70px_-40px_rgba(15,23,42,0.8)]">
+            <Card className="rounded-[2rem] border border-slate-700/70 bg-slate-900/80 text-slate-300 p-6 shadow-[0_30px_70px_-40px_rgba(15,23,42,0.8)]">
               <CardHeader>
                 <CardTitle>Gestión estructurada</CardTitle>
               </CardHeader>
@@ -65,7 +65,7 @@ export default function LandingPage() {
                 Organiza cursos con módulos, lecciones y rutas de aprendizaje personalizadas para cada grupo.
               </CardContent>
             </Card>
-            <Card className="rounded-[2rem] border border-slate-700/70 bg-slate-900/80 p-6 shadow-[0_30px_70px_-40px_rgba(15,23,42,0.8)]">
+            <Card className="rounded-[2rem] border border-slate-700/70 bg-slate-900/80 text-slate-300 p-6 shadow-[0_30px_70px_-40px_rgba(15,23,42,0.8)]">
               <CardHeader>
                 <CardTitle>Analíticas inteligentes</CardTitle>
               </CardHeader>
@@ -73,7 +73,7 @@ export default function LandingPage() {
                 Controla el progreso de tus estudiantes con métricas claras, tendencias y reportes en tiempo real.
               </CardContent>
             </Card>
-            <Card className="rounded-[2rem] border border-slate-700/70 bg-slate-900/80 p-6 shadow-[0_30px_70px_-40px_rgba(15,23,42,0.8)]">
+            <Card className="rounded-[2rem] border border-slate-700/70 bg-slate-900/80 text-slate-300 p-6 shadow-[0_30px_70px_-40px_rgba(15,23,42,0.8)]">
               <CardHeader>
                 <CardTitle>Experiencia premium</CardTitle>
               </CardHeader>
@@ -105,7 +105,7 @@ export default function LandingPage() {
                   <li>5 cursos activos</li>
                   <li>Soporte por email</li>
                 </ul>
-                <Button className="w-full bg-cyan-500 text-slate-950 hover:bg-cyan-400" asChild>
+                <Button className="w-full bg-cyan-500 text-slate-300 hover:bg-cyan-400" asChild>
                   <Link href="/signup">Comenzar</Link>
                 </Button>
               </CardContent>
@@ -122,7 +122,7 @@ export default function LandingPage() {
                   <li>Cursos ilimitados</li>
                   <li>Analítica avanzada</li>
                 </ul>
-                <Button className="w-full bg-white text-slate-950 hover:bg-slate-100" asChild>
+                <Button className="w-full bg-slate-600 text-slate-100 hover:bg-slate-100 hover:text-slate-50" asChild>
                   <Link href="/signup">Elegir Plan</Link>
                 </Button>
               </CardContent>
@@ -133,13 +133,13 @@ export default function LandingPage() {
                 <CardTitle>Enterprise</CardTitle>
               </CardHeader>
               <CardContent className="space-y-5">
-                <p className="text-4xl font-extrabold text-slate-100">Custom</p>
+                <p className="text-4xl font-extrabold text-slate-300 ">Custom</p>
                 <ul className="space-y-3 text-sm text-slate-300">
                   <li>Integraciones avanzadas</li>
                   <li>Soporte dedicado</li>
                   <li>Infraestructura personalizada</li>
                 </ul>
-                <Button variant="outline" className="w-full border-slate-500 text-slate-100 hover:border-white hover:text-white" asChild>
+                <Button variant="outline" className="w-full border-slate-700/60 text-slate-500 hover:bg-slate-950/80 hover:border-black hover:text-white" asChild>
                   <Link href="/contact">Contactar</Link>
                 </Button>
               </CardContent>
@@ -154,10 +154,10 @@ export default function LandingPage() {
           <h2 className="mt-6 text-3xl font-bold text-white sm:text-4xl">Lleva tu formación al siguiente nivel</h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-400">Construye la experiencia educativa que tu comunidad merece, con una interfaz moderna, interacciones limpias y potencia de gestión profesional.</p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button size="lg" className="min-w-45 bg-cyan-500 text-slate-950 hover:bg-cyan-400" asChild>
+            <Button size="lg" className="min-w-45 bg-cyan-500 hover:text-white text-slate-950 hover:bg-cyan-400" asChild>
               <Link href="/signup">Crear cuenta</Link>
             </Button>
-            <Button variant="outline" size="lg" className="min-w-45 border-slate-500 text-slate-100 hover:border-white hover:text-white" asChild>
+            <Button variant="outline" size="lg" className="min-w-45 border-slate-500 hover:bg-slate-950/80 text-slate-400 hover:border-white hover:text-white" asChild>
               <Link href="/signin">Ver demo</Link>
             </Button>
           </div>

@@ -166,7 +166,7 @@ export default function SignUpPage() {
             <div className="space-y-2">
               <Button
                 variant="outline"
-                className="w-full border-slate-700 text-slate-100 hover:bg-slate-800"
+                className="w-full border-slate-700 text-slate-900 hover:bg-slate-800 hover:text-slate-100"
                 onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
               >
                 Continuar con Google
@@ -174,7 +174,7 @@ export default function SignUpPage() {
 
               <Button
                 variant="outline"
-                className="w-full border-slate-700 text-slate-100 hover:bg-slate-800"
+                className="w-full border-slate-700 text-slate-900 hover:bg-slate-800 hover:text-slate-100"
                 onClick={() => signIn("github", { callbackUrl: "/dashboard" })}
               >
                 Continuar con GitHub

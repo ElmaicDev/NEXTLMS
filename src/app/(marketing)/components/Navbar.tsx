@@ -29,7 +29,7 @@ export function Navbar() {
             <Link href="/signin">Iniciar sesión</Link>
           </Button>
 
-          <Button className="bg-cyan-500 text-slate-950 hover:bg-cyan-400 font-semibold" asChild>
+          <Button className="bg-cyan-500 text-slate-950 hover:bg-cyan-400 hover:text-white font-semibold" asChild>
             <Link href="/signup">Empezar gratis</Link>
           </Button>
         </div>
