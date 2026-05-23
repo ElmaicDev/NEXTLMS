@@ -1,6 +1,19 @@
 import { NextResponse } from "next/server"
-import {prisma} from "@/lib/prisma"
+import { randomBytes } from "crypto"
+import { prisma } from "@/lib/prisma"
+import { Role } from "@/lib/generated/prisma/client"
 import bcrypt from "bcryptjs"
+
+function slugify(input: string): string {
+    return (
+        input
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[̀-ͯ]/g, "")
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/(^-|-$)+/g, "") || "user"
+    )
+}
 
 export async function POST(req: Request) {
     try {
@@ -34,13 +47,45 @@ export async function POST(req: Request) {
 
         const hashedPassword = await bcrypt.hash(password, 10)
 
-        const user = await prisma.user.create({
-            data: {
-                name,
-                email,
-                password: hashedPassword,
-            },
-        })
+        const emailLocalPart = String(email).split("@")[0] || "user"
+        const displayName =
+            (typeof name === "string" && name.trim()) || emailLocalPart
+        const tenantName = `${displayName} Workspace`
+        const baseSlug = slugify(emailLocalPart)
+
+        let user: { id: string } | null = null
+
+        for (let attempt = 0; attempt < 5; attempt++) {
+            const slug = `${baseSlug}-${randomBytes(2).toString("hex")}`
+            try {
+                user = await prisma.$transaction(async (tx) => {
+                    const tenant = await tx.tenant.create({
+                        data: { name: tenantName, slug },
+                    })
+                    return tx.user.create({
+                        data: {
+                            name: typeof name === "string" ? name : null,
+                            email,
+                            password: hashedPassword,
+                            tenantId: tenant.id,
+                            role: Role.ADMIN,
+                        },
+                        select: { id: true },
+                    })
+                })
+                break
+            } catch (err: unknown) {
+                if ((err as { code?: string })?.code === "P2002") continue
+                throw err
+            }
+        }
+
+        if (!user) {
+            return NextResponse.json(
+                { error: "No se pudo generar un identificador único para el workspace" },
+                { status: 500 }
+            )
+        }
 
         return NextResponse.json(
             { message: "Usuario creado correctamente", userId: user.id },
